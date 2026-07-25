@@ -1,125 +1,183 @@
-📦 ControleEstoqueApp
+# 📦 Controle de Estoque
 
-Aplicação desktop para gerenciamento de estoque, desenvolvida em C# com Windows Forms (WinForms).
-Ideal para controle interno de produtos, fornecedores e movimentações de entrada e saída.
+Sistema desktop para gerenciamento de estoque, desenvolvido em **C#** com **Windows Forms**, utilizando **SQL Server** para persistência dos dados.
 
-🚀 Descrição Geral
+A aplicação permite controlar produtos, fornecedores e movimentações de entrada e saída de estoque por meio de uma interface simples e organizada.
 
-O ControleEstoqueApp foi criado para oferecer uma solução simples e funcional de gestão de estoque, com tela de login, controle de usuários, cadastro de produtos, movimentações e relatórios básicos.
+---
 
-O sistema pode ser utilizado por pequenas empresas, lojas ou como estudo de aplicações desktop conectadas a banco de dados.
+## 🚀 Funcionalidades
 
-🛠️ Tecnologias Utilizadas
-Camada	Tecnologia
-Linguagem	C#
-Interface	Windows Forms
-Banco de Dados	SQL Server Express ou LocalDB
-Acesso a Dados	ADO.NET
-IDE	Visual Studio
-📌 Funcionalidades
-✅ Login e autenticação
+- 🔐 Login de usuários
+- 📦 Cadastro de produtos
+- 🚚 Cadastro de fornecedores
+- 📥 Registro de entradas de estoque
+- 📤 Registro de saídas de estoque
+- 📋 Consulta de produtos
+- 📊 Relatórios de movimentações
+- 💾 Persistência de dados em SQL Server
 
-Tela de login para acesso ao sistema
+---
 
-Validação de usuário e senha
+## 🛠️ Tecnologias Utilizadas
 
-🧾 Cadastro
+- C#
+- .NET Framework
+- Windows Forms (WinForms)
+- SQL Server / SQL Server Express / LocalDB
+- ADO.NET
+- Visual Studio
 
-Produtos (nome, preço, quantidade, descrição)
+---
 
-Fornecedores
+## 📂 Estrutura do Projeto
 
-Movimentações de entrada/saída do estoque
-
-📊 Consultas e Relatórios
-
-Consulta de produtos cadastrados
-
-Consulta de movimentações
-
-Geração de relatórios simples
-
-🎨 Interface
-
-Layout intuitivo com múltiplas telas
-
-Menus organizados por módulos
-
-DataGridViews para listagens
-
-📁 Estrutura do Projeto
-ControleEstoqueApp/
+```text
+ControleEstoqueApp
 │
-├── FormProdutos/            # Cadastro e edição de produtos
-├── FormFornecedores/        # Cadastro de fornecedores
-├── FormMovimentacoes/       # Entradas e saídas do estoque
-├── FormRelatorios/          # Relatórios gerais
-├── LoginForm.cs             # Tela de login
-├── MainForm.cs              # Tela principal após login
+├── Properties
 │
-├── Conexao.cs               # Classe de conexão com banco
-├── App.config               # String de conexão
+├── FormProdutos.cs
+├── FormFornecedores.cs
+├── FormMovimentacoes.cs
+├── FormRelatorios.cs
+├── LoginForm.cs
+├── MainForm.cs
+│
+├── Conexao.cs
+├── App.config
+├── Program.cs
+│
+├── ControleEstoqueApp.csproj
 └── README.md
+```
 
-🗄️ Banco de Dados
+---
 
-Um exemplo de tabelas usadas:
+## 🏗️ Arquitetura
 
-CREATE TABLE Produtos (
-    Id INT PRIMARY KEY IDENTITY,
-    Nome NVARCHAR(100),
-    Preco DECIMAL(10,2),
-    Quantidade INT,
-    Descricao NVARCHAR(255)
-);
+```text
+Usuário
+    │
+    ▼
+Windows Forms
+    │
+    ▼
+ADO.NET
+    │
+    ▼
+SQL Server
+```
 
-CREATE TABLE Fornecedores (
-    Id INT PRIMARY KEY IDENTITY,
-    Nome NVARCHAR(100),
-    Telefone NVARCHAR(20),
-    Email NVARCHAR(100)
-);
+---
 
-CREATE TABLE Movimentacoes (
-    Id INT PRIMARY KEY IDENTITY,
-    ProdutoId INT FOREIGN KEY REFERENCES Produtos(Id),
-    Tipo NVARCHAR(20), -- Entrada ou Saída
-    Quantidade INT,
-    DataMovimentacao DATETIME DEFAULT GETDATE()
-);
+## ▶️ Como executar
 
-▶️ Como Executar
+### Clone o repositório
 
-Clone o repositório:
-
+```bash
 git clone https://github.com/Rester-fullstack/ControleEstoqueApp.git
+```
 
+Entre na pasta do projeto
 
-Abra no Visual Studio
+```bash
+cd ControleEstoqueApp
+```
 
-Configure a conexão com seu banco de dados em App.config:
+Abra o projeto no **Visual Studio**.
 
-<connectionStrings>
-    <add name="Conexao"
-         connectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ControleEstoqueDB;Integrated Security=True" />
-</connectionStrings>
+Configure a string de conexão no arquivo **App.config** conforme sua instalação do SQL Server.
 
+Execute o projeto pressionando **F5** ou clicando em **Start** no Visual Studio.
 
-Crie as tabelas manualmente (caso necessário)
+---
 
-Execute com F5
+## 🗄️ Banco de Dados
 
-📌 Melhorias Futuras
+O sistema utiliza SQL Server para armazenar as informações.
 
-✔ Migração para Entity Framework
-✔ Relatórios em PDF
-✔ Controle de usuários e permissões
-✔ Dashboard com gráficos
-✔ Modo dark
+As principais entidades são:
 
-👤 Autora
+- Produtos
+- Fornecedores
+- Movimentações de Estoque
 
-Ester da Costa Batista
-🖥️ Técnica em TI • Desenvolvedora Fullstack
-📍 Aracaju – SE
-📫 ester.retse30@gmail.com
+Caso necessário, crie as tabelas utilizando um script SQL compatível com a estrutura do projeto.
+
+---
+
+## 📊 Recursos da Aplicação
+
+- Controle de estoque
+- Cadastro de fornecedores
+- Controle de movimentações
+- Consulta de registros
+- Relatórios básicos
+- Interface desktop em Windows Forms
+
+---
+
+## 📸 Screenshots
+
+Adicione imagens como:
+
+- Tela de Login
+- Tela Principal
+- Cadastro de Produtos
+- Cadastro de Fornecedores
+- Movimentações
+- Relatórios
+
+---
+
+## 📚 Objetivos do Projeto
+
+Este projeto foi desenvolvido para praticar:
+
+- Desenvolvimento Desktop com Windows Forms
+- Programação em C#
+- Integração com SQL Server
+- ADO.NET
+- CRUD completo
+- Organização em múltiplos formulários
+- Manipulação de banco de dados
+
+---
+
+## 🔮 Melhorias Futuras
+
+- Implementação com Entity Framework Core
+- Dashboard com indicadores
+- Exportação de relatórios em PDF
+- Controle de permissões por usuário
+- Interface responsiva
+- Tema escuro
+
+---
+
+## 👩‍💻 Desenvolvedora
+
+**Ester da Costa Batista**
+
+Desenvolvedora Full Stack
+
+### Tecnologias
+
+- C#
+- .NET
+- ASP.NET Core
+- React
+- SQL Server
+- Entity Framework Core
+- APIs REST
+
+GitHub:
+
+https://github.com/Rester-fullstack
+
+---
+
+## 📄 Licença
+
+Projeto desenvolvido para fins de estudo e portfólio.
